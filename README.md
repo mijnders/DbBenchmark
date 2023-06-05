@@ -1,8 +1,12 @@
 # DbBenchmark
-DbBenchmark in der Projektwoche
+In diesem Projekt beabsichtigen wir, eine umfassende Leistungsanalyse verschiedener Datenbankmodelle durchzuführen: PostgreSQL als repräsentatives relationales Modell, MongoDB als Dokumentenmodell, Redis als Schlüssel-Wert-Modell und Neo4j als Graphmodell. Unser Ziel ist es, die jeweiligen Stärken und Schwächen der Modelle bei der Verarbeitung von CRUD-Operationen zu ermitteln.
 
-Szenario: Benchmarken verschiedener Datenbankenmodellen
-Datenbankenmodelle: Relational (PostgreSQL) vs Document (MongoDB) vs Key-Value (Redis) vs Graph (Neo4j)
+Zu diesem Zweck entwickeln wir eine Reihe von Testszenarien, bei denen wir die CRUD-Methoden (Create, Read, Update, Delete) über die verschiedenen Datenbankmodelle skalieren. Wir beginnen mit einer moderaten Anzahl von Datensätzen und erhöhen die Datenmenge dann exponentiell um eine Zehnerpotenz.
+
+Wir werden die Ausführungszeiten für jede Operation messen und die Skalierbarkeit der Modelle bewerten, indem wir die Veränderungen der Leistung über die verschiedenen Datenbanken hinweg analysieren. Darüber hinaus werden wir den Ressourcenverbrauch, wie Speicher und CPU-Auslastung, beobachten, um zu verstehen, wie gut die Datenbankmodelle mit zunehmender Datenmenge skalieren.
+
+Die Ergebnisse dieses Benchmarks werden wertvolle Erkenntnisse liefern und uns helfen, fundierte Entscheidungen darüber zu treffen, welches Datenbankmodell für unsere spezifischen Anforderungen am besten geeignet ist. Darüber hinaus können wir Empfehlungen für andere Projekte geben, die vor ähnlichen Herausforderungen stehen und eine fundierte Entscheidung über das geeignete Datenbankmodell treffen möchten.
+
 
 Aufgabenstellung: 
 1. Experte in der Datenbank werden
