@@ -9,15 +9,11 @@ Die Ergebnisse dieses Benchmarks werden wertvolle Erkenntnisse liefern und uns h
 
 
 Aufgabenstellung: 
-1. Anforderungsanalyse: Definiere die spezifischen Anforderungen des Projekts.
-2. Datenmodellierung: Entwickle passende Datenmodelle für jede Datenbank.
-3. Testplanung: Plane die zu benchmarkenden Szenarien und Metriken.
-4. Umgebungseinrichtung: Installiere und konfiguriere die Datenbankmodelle und erforderliche Software.
-5. Implementierung der Testszenarien: Implementiere den Code für die definierten Szenarien.
-6. Durchführung der Tests: Führe die Tests durch und sammle relevante Daten.
-7. Datenanalyse und Ergebnisbewertung: Analysiere die Daten und bewerte die Leistung der Datenbankmodelle.
-8. Berichterstellung: Erstelle einen Bericht mit den Ergebnissen und Empfehlungen.
-9. Validierung und Implementierung: Validiere die Ergebnisse und implementiere das ausgewählte Datenbankmodell.
+1. Testplanung: Plane die zu benchmarkenden Szenarien und Metriken.
+2. Umgebungseinrichtung: Installiere und konfiguriere die Datenbankmodelle und erforderliche Software.
+3. Implementierung der Testszenarien: Implementiere den Code für die definierten Szenarien.
+Gemeinsam:
+4. Durchführung der Tests: Führe die Tests durch und sammle relevante Daten.
 
 
 Testszenarien: 
