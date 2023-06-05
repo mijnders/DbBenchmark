@@ -8,16 +8,15 @@ Wir werden die Ausführungszeiten für jede Operation messen und die Skalierbark
 Die Ergebnisse dieses Benchmarks werden wertvolle Erkenntnisse liefern und uns helfen, fundierte Entscheidungen darüber zu treffen, welches Datenbankmodell für unsere spezifischen Anforderungen am besten geeignet ist. Darüber hinaus können wir Empfehlungen für andere Projekte geben, die vor ähnlichen Herausforderungen stehen und eine fundierte Entscheidung über das geeignete Datenbankmodell treffen möchten.
 
 
-Aufgabenstellung: 
+# Aufgabenstellung: 
 1. Testplanung: Plane die zu benchmarkenden Szenarien und Metriken.
 2. Umgebungseinrichtung: Installiere und konfiguriere die Datenbankmodelle und erforderliche Software.
 3. Implementierung der Testszenarien: Implementiere den Code für die definierten Szenarien.
 
-# Gemeinsam:
-4. Durchführung der Tests: Führe die Tests durch und sammle relevante Daten.
+4. Gemeinsam: Durchführung der Tests: Führe die Tests durch und sammle relevante Daten.
 
 
-Testszenarien: 
+# Testszenarien: 
 1. Daten erstellen:
     - Bewertung der Leistung der Datenbankmodelle beim Erstellen von Daten.
     - Erhöhe die Anzahl der erstellten Datensätze schrittweise in Zehnerpotenzen.
@@ -35,7 +34,7 @@ Testszenarien:
     - Führe Löschoperationen für eine steigende Anzahl von Datensätzen durch.
     - Vergleiche die Leistung und Verarbeitungsgeschwindigkeit der Datenbankmodelle.
 ______________________________________________________________________________________________________________________________________
-Anleitungen zum Aufsetzen einer lokalen Datenbank:
+# Anleitungen zum Aufsetzen einer lokalen Datenbank:
 
 PostgreSQL:
 
