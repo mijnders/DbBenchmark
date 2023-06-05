@@ -13,7 +13,7 @@ Aufgabenstellung:
 2. Umgebungseinrichtung: Installiere und konfiguriere die Datenbankmodelle und erforderliche Software.
 3. Implementierung der Testszenarien: Implementiere den Code für die definierten Szenarien.
 
-Gemeinsam:
+# Gemeinsam:
 4. Durchführung der Tests: Führe die Tests durch und sammle relevante Daten.
 
 
