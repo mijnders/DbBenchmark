@@ -9,18 +9,34 @@ Die Ergebnisse dieses Benchmarks werden wertvolle Erkenntnisse liefern und uns h
 
 
 Aufgabenstellung: 
-1. Experte in der Datenbank werden
-2. Lokal installieren der Datenbank und Installation Dokumentieren
-3. Vorgefertigte Test Daten bespielen
+1. Anforderungsanalyse: Definiere die spezifischen Anforderungen des Projekts.
+2. Datenmodellierung: Entwickle passende Datenmodelle für jede Datenbank.
+3. Testplanung: Plane die zu benchmarkenden Szenarien und Metriken.
+4. Umgebungseinrichtung: Installiere und konfiguriere die Datenbankmodelle und erforderliche Software.
+5. Implementierung der Testszenarien: Implementiere den Code für die definierten Szenarien.
+6. Durchführung der Tests: Führe die Tests durch und sammle relevante Daten.
+7. Datenanalyse und Ergebnisbewertung: Analysiere die Daten und bewerte die Leistung der Datenbankmodelle.
+8. Berichterstellung: Erstelle einen Bericht mit den Ergebnissen und Empfehlungen.
+9. Validierung und Implementierung: Validiere die Ergebnisse und implementiere das ausgewählte Datenbankmodell.
 
 
 Testszenarien: 
-        alles asynchron
-C. 1 -> 10 -> 100 -> 1000 -> 10000
-R. 1 -> 10 -> 100 -> 1000 -> 10000
-U. 1 -> 10 -> 100 -> 1000 -> 10000
-D. 1 -> 10 -> 100 -> 1000 -> 10000
-
+1. Daten erstellen:
+    - Bewertung der Leistung der Datenbankmodelle beim Erstellen von Daten.
+    - Erhöhe die Anzahl der erstellten Datensätze schrittweise in Zehnerpotenzen.
+    - Analysiere die Skalierbarkeit der Datenbankmodelle bei zunehmender Datenmenge.
+2. Daten lesen:
+    - Bewertung der Lesegeschwindigkeit der Datenbankmodelle.
+    - Durchführen von Leseabfragen mit einer steigenden Anzahl von Datensätzen.
+    - Vergleiche die Ausführungszeiten der Leseoperationen zwischen den Datenbankmodellen.
+3. Daten aktualisieren:
+    - Überprüfung der Geschwindigkeit der Aktualisierung von Daten in den Datenbankmodellen.
+    - Durchführen von Aktualisierungsoperationen für eine steigende Anzahl von Datensätzen.
+    - Vergleiche die Leistung und Verarbeitungsgeschwindigkeit der Datenbankmodelle.
+4. Daten löschen:
+    - Teste die Geschwindigkeit des Löschens von Daten in den Datenbankmodellen.
+    - Führe Löschoperationen für eine steigende Anzahl von Datensätzen durch.
+    - Vergleiche die Leistung und Verarbeitungsgeschwindigkeit der Datenbankmodelle.
 ______________________________________________________________________________________________________________________________________
 Anleitungen zum Ausetzen einer lokalen Datenbank:
 
