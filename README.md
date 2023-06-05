@@ -38,7 +38,7 @@ Testszenarien:
     - Führe Löschoperationen für eine steigende Anzahl von Datensätzen durch.
     - Vergleiche die Leistung und Verarbeitungsgeschwindigkeit der Datenbankmodelle.
 ______________________________________________________________________________________________________________________________________
-Anleitungen zum Ausetzen einer lokalen Datenbank:
+Anleitungen zum Aufsetzen einer lokalen Datenbank:
 
 PostgreSQL:
 
