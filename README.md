@@ -12,6 +12,7 @@ Aufgabenstellung:
 1. Testplanung: Plane die zu benchmarkenden Szenarien und Metriken.
 2. Umgebungseinrichtung: Installiere und konfiguriere die Datenbankmodelle und erforderliche Software.
 3. Implementierung der Testszenarien: Implementiere den Code für die definierten Szenarien.
+
 Gemeinsam:
 4. Durchführung der Tests: Führe die Tests durch und sammle relevante Daten.
 
