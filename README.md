@@ -68,11 +68,12 @@ CREATE (invoice:Invoice {id: row.ID, total: toFloat(row.TOTAL)})
 CREATE (invoice)-[:BELONGS_TO]->(customer)
 ```
 ```bash
-MATCH (customer:Customer {id: 13})-[:BELONGS_TO]->(invoice:Invoice)-[:PART_OF]->(item:Item)-[:PRODUCT]->(product:Product)
-WITH customer, invoice, collect(DISTINCT product) AS products
-MATCH (otherCustomer:Customer)-[:BELONGS_TO]->(otherInvoice:Invoice)-[:PART_OF]->(otherItem:Item)-[:PRODUCT]->(product)
-WHERE otherCustomer <> customer AND product IN products
-RETURN customer, invoice, collect(DISTINCT otherCustomer) AS customersWithSameProducts
+LOAD CSV WITH HEADERS FROM 'file:///ITEM.csv' AS row
+MATCH (invoice:Invoice {id: row.INVOICEID})
+MATCH (product:Product {id: row.PRODUCTID})
+CREATE (item:Item {item: row.ITEM, quantity: toInteger(row.QUANTITY), cost: toFloat(row.COST)})
+CREATE (item)-[:PART_OF]->(invoice)
+CREATE (item)-[:PRODUCT]->(product)
 ```
 
 Nun sollte dein Neo4j bereit sein zum Benchmarken :)
