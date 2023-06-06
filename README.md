@@ -43,3 +43,20 @@ ________________________________________________________________________________
 ## Redis:
 
 ## Neo4j:
+
+LOAD CSV WITH HEADERS FROM 'file:///CUSTOMER.csv' AS row
+CREATE (:Customer {id: row.ID, firstname: row.FIRSTNAME, lastname: row.LASTNAME, street: row.STREET, city: row.CITY})
+
+LOAD CSV WITH HEADERS FROM 'file:///PRODUCT.csv' AS row
+CREATE (:Product {id: row.ID, name: row.NAME, price: toFloat(row.PRICE)})
+
+LOAD CSV WITH HEADERS FROM 'file:///INVOICE.csv' AS row
+MATCH (customer:Customer {id: row.CUSTOMERID})
+CREATE (invoice:Invoice {id: row.ID, total: toFloat(row.TOTAL)})
+CREATE (invoice)-[:BELONGS_TO]->(customer)
+
+MATCH (customer:Customer {id: 13})-[:BELONGS_TO]->(invoice:Invoice)-[:PART_OF]->(item:Item)-[:PRODUCT]->(product:Product)
+WITH customer, invoice, collect(DISTINCT product) AS products
+MATCH (otherCustomer:Customer)-[:BELONGS_TO]->(otherInvoice:Invoice)-[:PART_OF]->(otherItem:Item)-[:PRODUCT]->(product)
+WHERE otherCustomer <> customer AND product IN products
+RETURN customer, invoice, collect(DISTINCT otherCustomer) AS customersWithSameProducts
