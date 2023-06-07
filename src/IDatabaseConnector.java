@@ -12,15 +12,22 @@ public interface IDatabaseConnector {
 
     /**
      * Send a query to the database that returns
-     * @param query that is send to the database. It has to be in the query language of the database.
+     * @param query that is send to the database.
      * @return the set of entries resulting from the query.
      */
     public ResultSet ask(String query);
 
     /**
      * Send a query to the database that does not return data, like creating new entries.
-     * @param query that is send to the database. It has to be in the query language of the database.
+     * @param query that is send to the database.
      * @return if the query has been accepted.
      */
     public boolean send(String query);
+
+    /**
+     * Creates the structure and fills the database with given test data.
+     * @param params is a list of strings that specify the structure of the database and the initial data. Specify which index is for which parameter.
+     * @return the database has been successfully initialized.
+     */
+    public boolean initializeDatabase(String... params);
 }
