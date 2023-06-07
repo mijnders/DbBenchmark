@@ -1,5 +1,5 @@
 # DbBenchmark
-In diesem Projekt beabsichtigen wir, eine umfassende Leistungsanalyse verschiedener **Datenbankmodelle** durchzuführen: **PostgreSQL** als repräsentatives relationales Modell, **MongoDB** als Dokumentenmodell, **Redis** als Schlüssel-Wert-Modell und **Neo4j** als Graphmodell. Unser Ziel ist es, die jeweiligen Stärken und Schwächen der Modelle bei der Verarbeitung von CRUD-Operationen zu ermitteln.
+In diesem Projekt beabsichtigen wir, eine umfassende Leistungsanalyse verschiedener **Datenbankmodelle** durchzuführen: **PostgreSQL** als repräsentatives relationales Modell, **MongoDB** als Dokumentenmodell und **Neo4j** als Graphmodell. Unser Ziel ist es, die jeweiligen Stärken und Schwächen der Modelle bei der Verarbeitung von CRUD-Operationen zu ermitteln.
 
 Zu diesem Zweck entwickeln wir eine Reihe von Testszenarien, bei denen wir die CRUD-Methoden (Create, Read, Update, Delete) über die verschiedenen Datenbankmodelle skalieren. Wir beginnen mit einer moderaten Anzahl von Datensätzen und erhöhen die Datenmenge dann exponentiell um eine Zehnerpotenz.
 
@@ -39,8 +39,6 @@ ________________________________________________________________________________
 ## PostgreSQL:
 
 ## MongoDB:
-
-## Redis:
 
 ## Neo4j:
 
