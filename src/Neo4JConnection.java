@@ -28,7 +28,9 @@ public class Neo4JConnection implements IDatabaseConnector {
     public boolean send(String query) {
         try(PreparedStatement statement = con.prepareStatement(query)){
             try(ResultSet rs = statement.executeQuery()){
-                return !rs.next();
+                if(!rs.next()) return false;
+                System.out.println(rs.getString(0));
+                return true;
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
