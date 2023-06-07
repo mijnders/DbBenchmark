@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="neo4j-jdbc">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/neo4j-jdbc/neo4j-jdbc-bolt/src/main/java" />
+      <root url="file://$USER_HOME$/neo4j-jdbc/neo4j-jdbc-bolt/src/test/java" />
+      <root url="file://$USER_HOME$/neo4j-jdbc/neo4j-jdbc-examples/mybatis/src/main/java" />
+      <root url="file://$USER_HOME$/neo4j-jdbc/neo4j-jdbc-examples/mybatis/src/test/java" />
+      <root url="file://$USER_HOME$/neo4j-jdbc/neo4j-jdbc/src/main/java" />
+      <root url="file://$USER_HOME$/neo4j-jdbc/neo4j-jdbc/src/test/java" />
+      <root url="file://$USER_HOME$/neo4j-jdbc" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/neo4j-jdbc" recursive="false" type="SOURCES" />
+  </library>
+</component>
