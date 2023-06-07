@@ -1,9 +1,6 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
-public class PostgresConnector {
+public class PostgresConnector implements IDatabaseConnector{
 
     //Connection string
     public static String postgresURL = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=geheim";
@@ -20,7 +17,8 @@ public class PostgresConnector {
 
     private Connection connection;
 
-    public PostgresConnector() {
+    @Override
+    public boolean connect() {
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(
@@ -31,25 +29,46 @@ public class PostgresConnector {
         catch (Exception e) {
             System.err.println("Connection failed!");
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
-    public void sendStatement(String s) throws SQLException, ClassNotFoundException{
-        Statement statement = connection.createStatement();
-        statement.execute(s);
-    }
-
-    public void importDataFromCSV(String productPath, String customerPath, String invoicePath, String itemPath){
-        String importQuery =
-                        "COPY Customer(id, Firstname, Lastname, Street, City) FROM '" + customerPath + "'DELIMITER ',' CSV HEADER;";
+    @Override
+    public ResultSet ask(String query) {
         try {
-            sendStatement(importQuery);
+            Statement statement = connection.createStatement();
+            return statement.executeQuery(query);
         }
-        catch (Exception e){
+        catch (Exception e) {
+            System.err.println("The Query failed: " + query);
             e.printStackTrace();
+            return null;
         }
+    }
+
+    @Override
+    public boolean send(String query) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute(query);
+        }
+        catch (Exception e) {
+            System.err.println("The Query failed: " + query);
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean initializeDatabase(String... params) {
+        String importQuery =
+                "COPY Customer(id, Firstname, Lastname, Street, City) FROM '" + params[0] + "'DELIMITER ',' CSV HEADER;" +
+                "COPY Product(id, Name, Price) FROM '" + params[1] + "' DELIMITER ',' CSV HEADER;" +
+                "COPY Invoice(id, CustomerID, Total) '" + params[2] + "' DELIMITER ',' CSV HEADER;" +
+                "COPY Item(InvoiceID, Item, ProductID, Quantity, Cost) '" + params[3] + "' DELIMITER ',' CSV HEADER;";
+
+        return send(importQuery);
     }
 }
-
-// +
-//                        "COPY Product(id, Name, Price) FROM '" + productPath + "' DELIMITER ',' CSV HEADER;";
