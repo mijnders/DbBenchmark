@@ -1,18 +1,26 @@
 import java.sql.*;
-import org.neo4j.jdbc.*;
 
-public class Neo4JConnection implements IDatabaseConnector {
+public class Neo4JConnector implements IDatabaseConnector {
 
+    //Connection string
+    private static final String neo4jConnectionString = "jdbc:neo4j:bolt://localhost:7687";
+    private static final String user = "java";
+    private static final String password = "passwort";
     private Connection con;
     public boolean connect(){
-        try{
-            con = DriverManager.getConnection("jdbc:neo4j:bolt://localhost:7687", "java", "passwort");
-            System.out.println("Verbindung zur Datenbank wurde hergestellt");
-            return true;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        try {
+            Class.forName("org.neo4j.driver.Driver");
+            con = DriverManager.getConnection(
+                    neo4jConnectionString,
+                    user,
+                    password);
+        }
+        catch (Exception e) {
+            System.err.println("Connection failed!");
+            e.printStackTrace();
             return false;
         }
+        return true;
     }
 
     public ResultSet ask(String query){
