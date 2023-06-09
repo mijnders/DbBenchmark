@@ -5,7 +5,8 @@ public class Neo4JConnection implements IDatabaseConnector {
 
     private Connection con;
     public boolean connect(){
-        try(Connection con = DriverManager.getConnection("jdbc:neo4j:bolt://localhost:7687", "java", "passwort")){
+        try{
+            con = DriverManager.getConnection("jdbc:neo4j:bolt://localhost:7687", "java", "passwort");
             System.out.println("Verbindung zur Datenbank wurde hergestellt");
             return true;
         } catch (SQLException e) {
