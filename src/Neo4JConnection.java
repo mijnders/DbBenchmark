@@ -16,27 +16,28 @@ public class Neo4JConnection implements IDatabaseConnector {
     }
 
     public ResultSet ask(String query){
-        try(PreparedStatement statement = con.prepareStatement(query)){
-            try(ResultSet rs = statement.executeQuery()){
-                return rs;
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        try {
+            Statement statement = con.createStatement();
+            return statement.executeQuery(query);
+        }
+        catch (Exception e) {
+            System.err.println("The Query failed: " + query);
+            e.printStackTrace();
             return null;
         }
     }
 
     public boolean send(String query) {
-        try(PreparedStatement statement = con.prepareStatement(query)){
-            try(ResultSet rs = statement.executeQuery()){
-                if(!rs.next()) return false;
-                System.out.println(rs.getString(0));
-                return true;
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        try {
+            Statement statement = con.createStatement();
+            statement.execute(query);
+        }
+        catch (Exception e) {
+            System.err.println("The Query failed: " + query);
+            e.printStackTrace();
             return false;
         }
+        return true;
     }
 
     public boolean initializeDatabase(String... params) {
