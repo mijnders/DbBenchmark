@@ -49,6 +49,17 @@ public class Neo4JConnector implements IDatabaseConnector {
     }
 
     public boolean initializeDatabase(String... params) {
-        return false;
+        var query = "";
+        //READ CUSTOMER.CSV
+        for (int i = 1; i <= 10; i++){
+            query += "LOAD CSV WITH HEADERS FROM 'file:///Customer/Customer" + i + ".csv' " +
+                    "LOAD CSV WITH HEADERS FROM 'file:///Products/Product" + i + ".csv' " +
+                    "LOAD CSV WITH HEADERS FROM 'file:///Invoices/Invoice" + i + ".csv' ";
+        }
+        for (int i = 1; i <= 50; i++){
+            query += "LOAD CSV WITH HEADERS FROM 'file:///Items/Item" + i + ".csv' ";
+        }
+        send(query);
+        return true;
     }
 }
