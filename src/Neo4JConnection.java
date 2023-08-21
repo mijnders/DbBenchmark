@@ -1,5 +1,4 @@
 import java.sql.*;
-import org.neo4j.jdbc.*;
 public class Neo4JConnection {
 
     public static void GetClass(){
