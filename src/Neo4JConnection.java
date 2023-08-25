@@ -1,45 +1,21 @@
 import java.sql.*;
-import org.neo4j.jdbc.*;
+public class Neo4JConnection {
 
-public class Neo4JConnection implements IDatabaseConnector {
-
-    private Connection con;
-    public boolean connect(){
-        try{
-            con = DriverManager.getConnection("jdbc:neo4j:bolt://localhost:7687", "java", "passwort");
-            System.out.println("Verbindung zur Datenbank wurde hergestellt");
-            return true;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-
-    public ResultSet ask(String query){
-        try(PreparedStatement statement = con.prepareStatement(query)){
-            try(ResultSet rs = statement.executeQuery()){
-                return rs;
+    public static void GetClass(){
+        String url = "jdbc:neo4j:bolt://localhost:7687";
+        String sql = "MATCH (n:Movie)-[:ACTED_IN]-(a:Person) WHERE a.name = \"Val Kilmer\" RETURN n.title";
+        try (Connection con = DriverManager.getConnection(url, "java", "passwort")) {
+            {
+                try(PreparedStatement stmt = con.prepareStatement(sql)){
+                    try(ResultSet rs = stmt.executeQuery()){
+                        while(rs.next()){
+                            System.out.println(rs.getString("n.title"));
+                        }
+                    }
+                }
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return null;
+            throw new RuntimeException(e);
         }
-    }
-
-    public boolean send(String query) {
-        try(PreparedStatement statement = con.prepareStatement(query)){
-            try(ResultSet rs = statement.executeQuery()){
-                if(!rs.next()) return false;
-                System.out.println(rs.getString(0));
-                return true;
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-
-    public boolean initializeDatabase(String... params) {
-        return false;
     }
 }

@@ -62,12 +62,31 @@ public class PostgresConnector implements IDatabaseConnector{
                         "create table Item (InvoiceID INT, Item INT, ProductID INT, Quantity INT, Cost FLOAT, PRIMARY KEY(InvoiceID, Item), " +
                         "CONSTRAINT invoice_fk FOREIGN KEY(InvoiceID) REFERENCES Invoice(id), CONSTRAINT product_fk FOREIGN KEY(ProductID) REFERENCES Product(id));";
 
-        String importQuery =
-                "COPY Customer(id, Firstname, Lastname, Street, City) FROM '" + params[0] + "'DELIMITER ',' CSV HEADER;" +
-                "COPY Product(id, Name, Price) FROM '" + params[1] + "' DELIMITER ',' CSV HEADER;" +
-                "COPY Invoice(id, CustomerID, Total) '" + params[2] + "' DELIMITER ',' CSV HEADER;" +
-                "COPY Item(InvoiceID, Item, ProductID, Quantity, Cost) '" + params[3] + "' DELIMITER ',' CSV HEADER;";
+        return send(createTables);
+    }
 
-        return send(createTables + importQuery);
+    public boolean ImportData(String... params) {
+        String importQuery =
+                "COPY Customer(id, Firstname, Lastname, Street, City) FROM '" + "Customer.csv" + "'DELIMITER ',' CSV HEADER;" +
+                        "COPY Product(id, Name, Price) FROM '" + "Product.csv" + "' DELIMITER ',' CSV HEADER;" +
+                        "COPY Invoice(id, CustomerID, Total) '" + "Invoice.csv" + "' DELIMITER ',' CSV HEADER;" +
+                        "COPY Item(InvoiceID, Item, ProductID, Quantity, Cost) '" + "Item.csv" + "' DELIMITER ',' CSV HEADER;";
+
+        return send(importQuery);
+    }
+
+    public boolean CreateEntrys(int amount){
+        StringBuilder entrys = new StringBuilder();
+        for(int i = 0; i < -1; i++){
+            entrys.append("INSERT INTO table_name(id, testColumn)" +
+                    "VALUES (" + i + ", testValue);");
+        }
+        return send(entrys.toString());
+    }
+
+    public boolean DeleteAllEntries(String tableName){
+        String deleteQuery = "DELETE FROM table";
+
+        return send(deleteQuery);
     }
 }
