@@ -42,5 +42,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="junit.junit5.api" level="project" />
   </component>
 </module>
