@@ -10,23 +10,29 @@ class Neo4JCreateTest {
     }
 
     private Neo4JConnector neo4JConnector;
+    public static List<String[]> allData = new ArrayList<>();
+    public static final String delimiter = ",";
 
     @BeforeAll
     public void Ini(){
         neo4JConnector = new Neo4JConnector();
         neo4JConnector.connect();
         neo4JConnector.initializeDatabase();
+
+        for (int i = 1; i <= 10; i++) {
+            List<String[]> data = read("C:\\Users\\mijnders\\RiderProjects\\DbBenchmark\\CSV\\Owners\\Owners" + i + ".csv");
+            allData.addAll(data);
+        }
     }
 
     @BeforeEach
-    public void InitializePostgresDatabase(){
-        
+    public void InitializeNeo4JDatabase(){
+
     }
 
     @AfterEach
-    public void TearDownPostgresDatabase(){
-        neo4JConnector.send("MATCH (n:Owners)\n" +
-                "DETACH DELETE n");
+    public void TearDownNeo4JDatabase(){
+        neo4JConnector.send(":auto MATCH (n:Owners) CALL {WITH n DETACH DELETE n} IN TRANSACTIONS");
     }
 
     public long Meassure(Meassureable meassureable){
@@ -67,5 +73,27 @@ class Neo4JCreateTest {
         long l = Meassure(() -> {
             //TEST
         });
+    }
+
+    public static List<String[]> read(String csvFile) {
+        List<String[]> rows = new ArrayList<>();
+
+        try {
+            File file = new File(csvFile);
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = "";
+
+            while ((line = br.readLine()) != null) {
+                String[] tempArr = line.split(delimiter);
+                rows.add(tempArr);
+            }
+
+            br.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+        return rows;
     }
 }
