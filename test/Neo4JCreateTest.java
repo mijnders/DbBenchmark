@@ -9,22 +9,24 @@ class Neo4JCreateTest {
         void TestMethod();
     }
 
-    private PostgresConnector postgresConnector;
+    private Neo4JConnector neo4JConnector;
 
     @BeforeAll
     public void Ini(){
-        postgresConnector = new PostgresConnector();
-        postgresConnector.connect();
+        neo4JConnector = new Neo4JConnector();
+        neo4JConnector.connect();
+        neo4JConnector.initializeDatabase();
     }
 
     @BeforeEach
     public void InitializePostgresDatabase(){
-        postgresConnector.initializeDatabase();
+        
     }
 
     @AfterEach
     public void TearDownPostgresDatabase(){
-
+        neo4JConnector.send("MATCH (n:Owners)\n" +
+                "DETACH DELETE n");
     }
 
     public long Meassure(Meassureable meassureable){
@@ -35,19 +37,35 @@ class Neo4JCreateTest {
     }
 
 
-    @org.junit.jupiter.api.Test
-    void createOne() {
+    @Test
+    public void createOne(){
+        long l = Meassure(() -> {
+            //TEST
+        });
     }
-    @org.junit.jupiter.api.Test
-    void createOneHundred() {
+    @Test
+    public void createOneHundred(){
+        long l = Meassure(() -> {
+            //TEST
+        });
     }
-    @org.junit.jupiter.api.Test
-    void createTenThousand() {
+    @Test
+    public void createTenThousand(){
+        long l = Meassure(() -> {
+            //TEST
+        });
     }
-    @org.junit.jupiter.api.Test
-    void createHundredThousand() {
+    @Test
+    public void createHundredThousand(){
+        long l = Meassure(() -> {
+            //TEST
+        });
     }
-    @org.junit.jupiter.api.Test
-    void createOneMillion() {
+
+    @Test
+    public void createOneMillion(){
+        long l = Meassure(() -> {
+            //TEST
+        });
     }
 }
