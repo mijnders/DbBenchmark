@@ -49,21 +49,24 @@ public class Neo4JConnector implements IDatabaseConnector {
     }
 
     public boolean initializeDatabase(String... params) {
-        var query = "";
-        //READ CUSTOMER.CSV
-        for (int i = 1; i <= 10; i++){
-            query += "LOAD CSV WITH HEADERS FROM 'file:///Customer/Customer" + i +".csv' AS line\n" +
-                    "CREATE (:Customer {Firstname: line.Firstname, Lastname: line.Lastname, Street: line.Street, City: line.City})\n" +
-                    "LOAD CSV WITH HEADERS FROM 'file:///Products/Product" + i + ".csv'\n" +
-                    "CREATE (:Product {Name: line.Name, Price: line.Price})\n" +
-                    "LOAD CSV WITH HEADERS FROM 'file:///Invoices/Invoice" + i + ".csv'\n" +
-                    "CREATE (:Invoice {CustomerId: line.CustomerId, Total: line.Total})\n";
+        String[] queries = new String[11]; // Für 10 Customer-CSVs und 1 Car-CSV
+
+        // READ CUSTOMER.CSV
+        for (int i = 1; i <= 10; i++) {
+            String customerQuery = "LOAD CSV WITH HEADERS FROM 'file:///Customer/Customer" + i + ".csv' AS line\n" +
+                    "CREATE (:Customer {firstname: line.Firstname, lastname: line.Lastname, street: line.Street, city: line.City})";
+            queries[i - 1] = customerQuery;
         }
-        for (int i = 1; i <= 50; i++){
-            query += "LOAD CSV WITH HEADERS FROM 'file:///Items/Item" + i + ".csv' AS line\n" +
-                    "CREATE (:Item {InvoiceId: line.InvoiceId, Item: line.})";
+
+        // READ Cars
+        String carQuery = "LOAD CSV WITH HEADERS FROM 'file:///Cars/Cars0.csv' AS line\n" +
+                "CREATE (:Car {modell: line.Modell, baujahr: toInteger(line.Baujahr)})";
+        queries[10] = carQuery;
+
+        for (String query : queries) {
+            send(query);
         }
-        send(query);
+
         return true;
     }
 }
