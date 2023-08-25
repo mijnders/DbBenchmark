@@ -1,10 +1,9 @@
 import java.sql.*;
-
 public class Neo4JConnector implements IDatabaseConnector {
 
     //Connection string
     private static final String neo4jConnectionString = "jdbc:neo4j:bolt://localhost:7687";
-    private static final String user = "java";
+    private static final String user = "neo4j";
     private static final String password = "passwort";
     private Connection con;
     public boolean connect(){
@@ -14,6 +13,7 @@ public class Neo4JConnector implements IDatabaseConnector {
                     neo4jConnectionString,
                     user,
                     password);
+            System.out.println("Connection established");
         }
         catch (Exception e) {
             System.err.println("Connection failed!");
@@ -52,12 +52,16 @@ public class Neo4JConnector implements IDatabaseConnector {
         var query = "";
         //READ CUSTOMER.CSV
         for (int i = 1; i <= 10; i++){
-            query += "LOAD CSV WITH HEADERS FROM 'file:///Customer/Customer" + i + ".csv' " +
-                    "LOAD CSV WITH HEADERS FROM 'file:///Products/Product" + i + ".csv' " +
-                    "LOAD CSV WITH HEADERS FROM 'file:///Invoices/Invoice" + i + ".csv' ";
+            query += "LOAD CSV WITH HEADERS FROM 'file:///Customer/Customer" + i +".csv' AS line\n" +
+                    "CREATE (:Customer {Firstname: line.Firstname, Lastname: line.Lastname, Street: line.Street, City: line.City})\n" +
+                    "LOAD CSV WITH HEADERS FROM 'file:///Products/Product" + i + ".csv'\n" +
+                    "CREATE (:Product {Name: line.Name, Price: line.Price})\n" +
+                    "LOAD CSV WITH HEADERS FROM 'file:///Invoices/Invoice" + i + ".csv'\n" +
+                    "CREATE (:Invoice {CustomerId: line.CustomerId, Total: line.Total})\n";
         }
         for (int i = 1; i <= 50; i++){
-            query += "LOAD CSV WITH HEADERS FROM 'file:///Items/Item" + i + ".csv' ";
+            query += "LOAD CSV WITH HEADERS FROM 'file:///Items/Item" + i + ".csv' AS line\n" +
+                    "CREATE (:Item {InvoiceId: line.InvoiceId, Item: line.})";
         }
         send(query);
         return true;
