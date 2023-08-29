@@ -52,21 +52,20 @@ public class Neo4JConnector implements IDatabaseConnector {
         String[] queries = new String[11]; // Für 10 Customer-CSVs und 1 Car-CSV
 
         // READ CUSTOMER.CSV
-        for (int i = 1; i <= 10; i++) {
-            String customerQuery = "LOAD CSV WITH HEADERS FROM 'file:///Customer/Customer" + i + ".csv' AS line\n" +
+        String customerQuery = "LOAD CSV WITH HEADERS FROM 'file:///Customer/Customer0.csv' AS line\n" +
                     "CREATE (:Customer {customerId: toInteger(line.Id), name: line.Name, street: line.Street, city: line.City});";
-            queries[i - 1] = customerQuery;
+        var answer = send(customerQuery);
+        if(!answer){
+            return false;
         }
-
         // READ Cars
         String carQuery = "LOAD CSV WITH HEADERS FROM 'file:///Cars/Cars0.csv' AS line\n" +
                 "CREATE (:Car {carId: toInteger(line.Id), name: line.Name, baujahr: toInteger(line.Baujahr)});";
-        queries[10] = carQuery;
 
-        for (String query : queries) {
-            send(query);
+        answer = send(carQuery);
+        if(!answer){
+            return false;
         }
-
         return true;
     }
 }
