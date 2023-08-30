@@ -1,379 +1,379 @@
 Id,Name,Baujahr
-0,Toyota Camry,1947
-1,Honda Civic,1953
-2,Ford F-150,1926
-3,Chevrolet Silverado,1995
-4,Nissan Altima,2020
-5,BMW 3 Series,1984
-6,Audi A4,1974
-7,Mercedes-Benz C-Class,2018
-8,Subaru Outback,1964
-9,Jeep Wrangler,1942
-10,Volkswagen Golf,2009
-11,Hyundai Sonata,1928
-12,Lexus RX,1933
-13,Tesla Model 3,2009
-14,Mazda MX-5 Miata,1926
-15,Dodge Charger,1975
-16,Kia Soul,1931
-17,Volvo XC90,1988
-18,Buick Enclave,1956
-19,Cadillac Escalade,1976
-20,GMC Sierra,2019
-21,Jaguar F-PACE,1941
-22,Land Rover Range Rover,1962
-23,Porsche 911,1982
-24,Chrysler 300,1944
-25,Acura MDX,1996
-26,Infiniti Q50,1926
-27,Mini Cooper,2001
-28,Fiat 500,1924
-29,Subaru Impreza,1971
-30,Chevrolet Corvette,2011
-31,Nissan Rogue,1937
-32,Ford Mustang,1989
-33,Toyota Highlander,1927
-34,Audi Q5,1962
-35,Mitsubishi Outlander,1975
-36,Kia Sportage,2010
-37,Honda CR-V,1973
-38,Hyundai Tucson,2012
-39,Jeep Cherokee,1943
-40,Volvo S60,1962
-41,Lexus IS,2003
-42,Tesla Model S,1937
-43,Mazda CX-5,1980
-44,Dodge Challenger,1923
-45,Volkswagen Passat,2007
-46,Chevrolet Malibu,1987
-47,Nissan Sentra,1994
-48,BMW 5 Series,1933
-49,Acura RDX,1929
-50,Lincoln Navigator,1989
-51,GMC Acadia,1945
-52,Jeep Grand Cherokee,1991
-53,Land Rover Discovery,1943
-54,Porsche Cayenne,1957
-55,Mercedes-Benz E-Class,2016
-56,Audi A6,1937
-57,Lexus ES,1981
-58,Mazda3,1959
-59,Ford Explorer,1961
-60,Kia Sorento,1957
-61,Hyundai Elantra,1969
-62,Toyota Prius,1951
-63,Chevrolet Equinox,1947
-64,Nissan Maxima,1958
-65,Subaru Legacy,2000
-66,Chrysler Pacifica,2003
-67,Dodge Durango,2001
-68,Honda Accord,1960
-69,Volkswagen Jetta,1949
-70,Cadillac XT5,1950
-71,Volvo XC60,1929
-72,Jaguar XE,1932
-73,Mercedes-Benz GLC,1957
-74,Audi Q7,1997
-75,Mitsubishi Mirage,1996
-76,Kia Optima,1932
-77,Lexus GX,2005
-78,Tesla Model X,1927
-79,Chevrolet Trax,1985
-80,Nissan Murano,1925
-81,Ford Escape,1987
-82,Toyota RAV4,1943
-83,Subaru Crosstrek,1958
-84,Jeep Renegade,2015
-85,Hyundai Santa Fe,1923
-86,GMC Terrain,2013
-87,Land Rover Range Rover Sport,1947
-88,Porsche Macan,1950
-89,BMW 7 Series,1936
-90,Acura TLX,2001
-91,Cadillac CTS,1929
-92,Volkswagen Tiguan,2017
-93,Mazda CX-9,1987
-94,Dodge Journey,1974
-95,Nissan Pathfinder,2021
-96,Chevrolet Tahoe,1969
-97,Honda Fit,1961
-98,Kia Forte,1954
-99,Mercedes-Benz GLA,1982
-100,Lexus NX,1953
-101,Tesla Model Y,1980
-102,Audi A3,1923
-103,Volvo V60,1957
-104,Jaguar XF,1948
-105,Infiniti QX60,1942
+0,Toyota Camry,1926
+1,Honda Civic,2019
+2,Ford F-150,1987
+3,Chevrolet Silverado,2008
+4,Nissan Altima,1933
+5,BMW 3 Series,1956
+6,Audi A4,2007
+7,Mercedes-Benz C-Class,1931
+8,Subaru Outback,1996
+9,Jeep Wrangler,1988
+10,Volkswagen Golf,1926
+11,Hyundai Sonata,1960
+12,Lexus RX,2011
+13,Tesla Model 3,1970
+14,Mazda MX-5 Miata,1955
+15,Dodge Charger,1984
+16,Kia Soul,1992
+17,Volvo XC90,1931
+18,Buick Enclave,1981
+19,Cadillac Escalade,1956
+20,GMC Sierra,1984
+21,Jaguar F-PACE,1966
+22,Land Rover Range Rover,2008
+23,Porsche 911,1942
+24,Chrysler 300,1964
+25,Acura MDX,2007
+26,Infiniti Q50,1978
+27,Mini Cooper,1956
+28,Fiat 500,1955
+29,Subaru Impreza,2011
+30,Chevrolet Corvette,1991
+31,Nissan Rogue,1925
+32,Ford Mustang,1929
+33,Toyota Highlander,2020
+34,Audi Q5,1967
+35,Mitsubishi Outlander,1987
+36,Kia Sportage,1984
+37,Honda CR-V,1996
+38,Hyundai Tucson,2016
+39,Jeep Cherokee,2012
+40,Volvo S60,1971
+41,Lexus IS,1970
+42,Tesla Model S,1935
+43,Mazda CX-5,2011
+44,Dodge Challenger,1932
+45,Volkswagen Passat,1975
+46,Chevrolet Malibu,2018
+47,Nissan Sentra,1931
+48,BMW 5 Series,2007
+49,Acura RDX,1945
+50,Lincoln Navigator,1953
+51,GMC Acadia,1958
+52,Jeep Grand Cherokee,1950
+53,Land Rover Discovery,2012
+54,Porsche Cayenne,2008
+55,Mercedes-Benz E-Class,1944
+56,Audi A6,1982
+57,Lexus ES,2017
+58,Mazda3,1985
+59,Ford Explorer,1954
+60,Kia Sorento,1997
+61,Hyundai Elantra,2016
+62,Toyota Prius,1952
+63,Chevrolet Equinox,1953
+64,Nissan Maxima,2005
+65,Subaru Legacy,1995
+66,Chrysler Pacifica,1963
+67,Dodge Durango,2016
+68,Honda Accord,1937
+69,Volkswagen Jetta,2014
+70,Cadillac XT5,1941
+71,Volvo XC60,1927
+72,Jaguar XE,1961
+73,Mercedes-Benz GLC,1969
+74,Audi Q7,2009
+75,Mitsubishi Mirage,1935
+76,Kia Optima,1937
+77,Lexus GX,1947
+78,Tesla Model X,2006
+79,Chevrolet Trax,1924
+80,Nissan Murano,1979
+81,Ford Escape,1990
+82,Toyota RAV4,2020
+83,Subaru Crosstrek,1983
+84,Jeep Renegade,2004
+85,Hyundai Santa Fe,1999
+86,GMC Terrain,1954
+87,Land Rover Range Rover Sport,2001
+88,Porsche Macan,1934
+89,BMW 7 Series,1978
+90,Acura TLX,1990
+91,Cadillac CTS,1998
+92,Volkswagen Tiguan,2022
+93,Mazda CX-9,1951
+94,Dodge Journey,1971
+95,Nissan Pathfinder,1923
+96,Chevrolet Tahoe,1961
+97,Honda Fit,1991
+98,Kia Forte,1938
+99,Mercedes-Benz GLA,1981
+100,Lexus NX,1956
+101,Tesla Model Y,1981
+102,Audi A3,1966
+103,Volvo V60,1977
+104,Jaguar XF,2007
+105,Infiniti QX60,1992
 106,Mitsubishi Eclipse Cross,1967
-107,Ford Edge,2009
-108,Hyundai Kona,1954
-109,Toyota Corolla,1943
-110,Subaru Forester,1949
-111,Jeep Compass,1944
-112,GMC Yukon,1930
-113,Land Rover Defender,1954
-114,Porsche Panamera,1993
-115,Chevrolet Blazer,1986
-116,Acura ILX,1999
-117,Lexus LS,2006
-118,Volkswagen Atlas,1972
-119,Mazda CX-30,1989
-120,Dodge Grand Caravan,2001
-121,Nissan Juke,1928
-122,Mercedes-Benz CLA,1994
-123,Kia Telluride,1927
-124,Tesla Roadster,1955
-125,Audi Q8,2010
-126,Volvo XC40,2000
-127,Jaguar E-PACE,2004
-128,Infiniti QX80,1992
-129,Mitsubishi Lancer,1982
-130,Ford Bronco,1950
-131,Hyundai Venue,1965
-132,Toyota 4Runner,1993
-133,Subaru Ascent,1951
-134,Jeep Gladiator,1977
-135,GMC Canyon,1968
-136,Land Rover Range Rover Evoque,1947
-137,Porsche 718 Cayman,2016
-138,Chevrolet Colorado,1975
-139,Acura NSX,1955
-140,Lexus RC,1948
-141,Volkswagen Arteon,1979
-142,Mazda MX-30,1978
-143,Dodge Dart,1967
-144,Nissan Kicks,1947
-145,Mercedes-Benz S-Class,1984
-146,Kia Carnival,1992
+107,Ford Edge,2003
+108,Hyundai Kona,1947
+109,Toyota Corolla,2020
+110,Subaru Forester,1947
+111,Jeep Compass,1992
+112,GMC Yukon,1931
+113,Land Rover Defender,1966
+114,Porsche Panamera,1978
+115,Chevrolet Blazer,2011
+116,Acura ILX,1946
+117,Lexus LS,2010
+118,Volkswagen Atlas,1934
+119,Mazda CX-30,2012
+120,Dodge Grand Caravan,2011
+121,Nissan Juke,1947
+122,Mercedes-Benz CLA,1928
+123,Kia Telluride,1931
+124,Tesla Roadster,1984
+125,Audi Q8,1923
+126,Volvo XC40,2016
+127,Jaguar E-PACE,2021
+128,Infiniti QX80,1971
+129,Mitsubishi Lancer,1963
+130,Ford Bronco,1937
+131,Hyundai Venue,2014
+132,Toyota 4Runner,1955
+133,Subaru Ascent,1939
+134,Jeep Gladiator,2002
+135,GMC Canyon,1960
+136,Land Rover Range Rover Evoque,2019
+137,Porsche 718 Cayman,1960
+138,Chevrolet Colorado,1928
+139,Acura NSX,1973
+140,Lexus RC,2015
+141,Volkswagen Arteon,1977
+142,Mazda MX-30,1963
+143,Dodge Dart,1952
+144,Nissan Kicks,1926
+145,Mercedes-Benz S-Class,1977
+146,Kia Carnival,2000
 147,Tesla Cybertruck,1944
-148,Audi RS6 Avant,2006
-149,Volvo Polestar 2,1970
-150,Jaguar I-PACE,1970
-151,Infiniti QX50,1981
-152,Mitsubishi Montero,2006
-153,Ford Maverick,1940
-154,Hyundai Ioniq,1938
-155,Toyota Tundra,1930
-156,Subaru XV Crosstrek,1950
-157,Jeep Patriot,1929
-158,GMC Savana,1984
-159,Land Rover Range Rover Velar,1967
-160,Porsche 911 GT3,1948
-161,Chevrolet Express,2004
-162,Acura RLX,2017
-163,Lexus LC,1949
-164,Volkswagen ID.4,1929
-165,Mazda RX-7,1982
-166,Dodge Viper,1966
-167,Nissan 370Z,1957
-168,Mercedes-Benz GLE,1987
-169,Kia Stinger,1990
-170,Tesla Model Roadster,2017
-171,Audi S4,1970
-172,Volvo V90,1970
-173,Jaguar XJ,1947
-174,Infiniti QX30,1966
-175,Mitsubishi Galant,2003
-176,Ford Puma,1940
-177,Hyundai Veloster,1937
-178,Toyota Supra,2004
-179,Subaru BRZ,1991
-180,Jeep Commander,1938
-181,GMC Yukon XL,1975
-182,Land Rover Range Rover Evoque,1949
-183,Porsche 911 Turbo,2007
-184,Chevrolet Suburban,1998
-185,Acura TSX,1989
-186,Lexus LFA,1983
-187,Volkswagen Golf GTI,1955
-188,Mazda RX-8,1935
-189,Dodge Caliber,1926
-190,Nissan Cube,1963
-191,Mercedes-Benz GLB,2001
-192,Kia Niro,1963
-193,Tesla Model Roadster,1965
-194,Audi S5,1939
-195,Volvo S90,1961
-196,Jaguar XJR,1970
-197,Infiniti QX70,1926
-198,Mitsubishi Raider,1965
-199,Ford Freestyle,2002
-200,Hyundai Tiburon,1931
-201,Toyota Sequoia,2021
-202,Subaru Baja,2006
-203,Jeep Commander,1981
-204,GMC Yukon XL,2009
-205,Land Rover Range Rover Sport,1947
-206,Porsche 911 GT2 RS,1975
-207,Chevrolet Volt,2002
-208,Acura TSX Sport Wagon,1937
-209,Lexus LX,1984
-210,Volkswagen Golf R,1966
-211,Mazda RX-8,2020
-212,Dodge Challenger SRT Hellcat,2010
-213,Nissan Leaf,1978
-214,Mercedes-Benz GLC Coupe,1937
-215,Kia Seltos,2016
-216,Tesla Model S Plaid,2012
-217,Audi SQ5,1926
-218,Volvo S90 Recharge,1992
-219,Jaguar XK,1988
-220,Infiniti QX90,1933
-221,Mitsubishi Eclipse Spyder,1990
-222,Ford GT,1965
-223,Hyundai Genesis Coupe,1992
-224,Toyota Venza,1963
-225,Subaru Justy,1962
-226,Jeep Compass,2017
-227,GMC Acadia Limited,2014
-228,Land Rover Range Rover Sport SVR,1995
-229,Porsche 911 GT3 RS,1934
-230,Chevrolet Spark,2008
-231,Acura ZDX,1998
-232,Lexus UX,2019
-233,Volkswagen Passat CC,1960
-234,Mazda Tribute,1982
-235,Dodge Charger SRT Hellcat,1945
-236,Nissan Juke Nismo,1969
-237,Mercedes-Benz GLC-Class Coupe,2002
-238,Kia Sedona,1961
-239,Tesla Model X Plaid,1966
-240,Audi SQ7,1960
-241,Volvo S60 Recharge,2005
-242,Jaguar XF Sportbrake,1953
-243,Infiniti QX50,1926
-244,Mitsubishi Outlander Sport,1938
-245,Ford Mustang Mach-E,2006
-246,Hyundai Santa Cruz,1970
-247,Toyota Yaris,1941
-248,Subaru Crosstrek Hybrid,2022
-249,Jeep Liberty,2005
-250,GMC Terrain Denali,1948
-251,Land Rover Range Rover Velar SVAutobiography,2004
-252,Porsche 911 Carrera,1965
-253,Chevrolet Sonic,1928
-254,Acura RLX Sport Hybrid,1928
-255,Lexus GX Sport,1964
-256,Volkswagen Atlas Cross Sport,1940
-257,Mazda CX-50,1950
-258,Dodge Durango SRT Hellcat,2014
-259,Nissan Pathfinder Hybrid,1998
-260,Mercedes-Benz GLA-Class,1973
-261,Kia Soul EV,2000
-262,Tesla Model 3 Plaid,1987
-263,Audi S8,2019
-264,Volvo V90 Recharge,2010
-265,Jaguar XKR,2000
-266,Infiniti QX60 Hybrid,2022
-267,Mitsubishi Outlander PHEV,1931
-268,Ford Mustang Shelby GT500,1929
-269,Hyundai Venue N,1976
-270,Toyota Corolla Cross,2000
-271,Subaru Forester Wilderness,1931
-272,Jeep Compass PHEV,1943
-273,GMC Yukon Denali,1985
+148,Audi RS6 Avant,1973
+149,Volvo Polestar 2,1985
+150,Jaguar I-PACE,1996
+151,Infiniti QX50,2015
+152,Mitsubishi Montero,1951
+153,Ford Maverick,1938
+154,Hyundai Ioniq,1978
+155,Toyota Tundra,2016
+156,Subaru XV Crosstrek,2011
+157,Jeep Patriot,1987
+158,GMC Savana,1975
+159,Land Rover Range Rover Velar,1965
+160,Porsche 911 GT3,2006
+161,Chevrolet Express,1956
+162,Acura RLX,1980
+163,Lexus LC,2021
+164,Volkswagen ID.4,2002
+165,Mazda RX-7,1976
+166,Dodge Viper,1929
+167,Nissan 370Z,1924
+168,Mercedes-Benz GLE,1978
+169,Kia Stinger,1959
+170,Tesla Model Roadster,1927
+171,Audi S4,1965
+172,Volvo V90,1958
+173,Jaguar XJ,1935
+174,Infiniti QX30,2007
+175,Mitsubishi Galant,1969
+176,Ford Puma,1927
+177,Hyundai Veloster,1999
+178,Toyota Supra,2019
+179,Subaru BRZ,1933
+180,Jeep Commander,1964
+181,GMC Yukon XL,1923
+182,Land Rover Range Rover Evoque,1938
+183,Porsche 911 Turbo,1998
+184,Chevrolet Suburban,1968
+185,Acura TSX,1960
+186,Lexus LFA,1975
+187,Volkswagen Golf GTI,1986
+188,Mazda RX-8,1987
+189,Dodge Caliber,1999
+190,Nissan Cube,1966
+191,Mercedes-Benz GLB,2009
+192,Kia Niro,1936
+193,Tesla Model Roadster,1925
+194,Audi S5,2004
+195,Volvo S90,2013
+196,Jaguar XJR,2017
+197,Infiniti QX70,1966
+198,Mitsubishi Raider,1933
+199,Ford Freestyle,1947
+200,Hyundai Tiburon,1971
+201,Toyota Sequoia,2016
+202,Subaru Baja,1930
+203,Jeep Commander,1941
+204,GMC Yukon XL,1942
+205,Land Rover Range Rover Sport,1999
+206,Porsche 911 GT2 RS,1956
+207,Chevrolet Volt,1950
+208,Acura TSX Sport Wagon,1996
+209,Lexus LX,1995
+210,Volkswagen Golf R,2000
+211,Mazda RX-8,1959
+212,Dodge Challenger SRT Hellcat,1929
+213,Nissan Leaf,2008
+214,Mercedes-Benz GLC Coupe,1974
+215,Kia Seltos,2022
+216,Tesla Model S Plaid,1923
+217,Audi SQ5,1954
+218,Volvo S90 Recharge,2022
+219,Jaguar XK,1977
+220,Infiniti QX90,1995
+221,Mitsubishi Eclipse Spyder,1993
+222,Ford GT,1976
+223,Hyundai Genesis Coupe,1926
+224,Toyota Venza,1996
+225,Subaru Justy,1959
+226,Jeep Compass,2021
+227,GMC Acadia Limited,1941
+228,Land Rover Range Rover Sport SVR,2020
+229,Porsche 911 GT3 RS,1977
+230,Chevrolet Spark,1984
+231,Acura ZDX,1930
+232,Lexus UX,1930
+233,Volkswagen Passat CC,2017
+234,Mazda Tribute,1942
+235,Dodge Charger SRT Hellcat,1974
+236,Nissan Juke Nismo,1979
+237,Mercedes-Benz GLC-Class Coupe,1985
+238,Kia Sedona,1998
+239,Tesla Model X Plaid,1925
+240,Audi SQ7,1971
+241,Volvo S60 Recharge,1984
+242,Jaguar XF Sportbrake,1985
+243,Infiniti QX50,1975
+244,Mitsubishi Outlander Sport,1947
+245,Ford Mustang Mach-E,1958
+246,Hyundai Santa Cruz,2001
+247,Toyota Yaris,1925
+248,Subaru Crosstrek Hybrid,1944
+249,Jeep Liberty,1999
+250,GMC Terrain Denali,2002
+251,Land Rover Range Rover Velar SVAutobiography,1978
+252,Porsche 911 Carrera,1984
+253,Chevrolet Sonic,2003
+254,Acura RLX Sport Hybrid,1926
+255,Lexus GX Sport,1965
+256,Volkswagen Atlas Cross Sport,1959
+257,Mazda CX-50,1954
+258,Dodge Durango SRT Hellcat,1948
+259,Nissan Pathfinder Hybrid,1981
+260,Mercedes-Benz GLA-Class,1930
+261,Kia Soul EV,1923
+262,Tesla Model 3 Plaid,1931
+263,Audi S8,2011
+264,Volvo V90 Recharge,2014
+265,Jaguar XKR,1971
+266,Infiniti QX60 Hybrid,1977
+267,Mitsubishi Outlander PHEV,1963
+268,Ford Mustang Shelby GT500,1969
+269,Hyundai Venue N,1926
+270,Toyota Corolla Cross,1998
+271,Subaru Forester Wilderness,1993
+272,Jeep Compass PHEV,1967
+273,GMC Yukon Denali,1939
 274,Land Rover Range Rover Velar S,2013
-275,Porsche 911 Targa,1999
-276,Chevrolet Trax Activ,1992
-277,Acura MDX Sport Hybrid,1944
-278,Lexus GS Sport,1982
-279,Volkswagen Taos,1934
-280,Mazda CX-70,2010
-281,Dodge Challenger SRT Demon,1953
-282,Nissan Titan XD,1988
-283,Mercedes-Benz GLS-Class,1989
-284,Kia Telluride Nightfall Edition,1954
-285,Tesla Model 2,1956
-286,Audi RS7,2001
-287,Volvo XC90 Recharge,1952
-288,Jaguar XKRS,1971
-289,Infiniti QX70,1954
-290,Mitsubishi Eclipse Cross PHEV,1933
-291,Ford Bronco Sport,1965
-292,Hyundai Kona N,1961
-293,Toyota Corolla Cross Hybrid,1957
-294,Subaru BRZ tS,1926
-295,Jeep Renegade PHEV,1974
-296,GMC Canyon Denali,1957
-297,Land Rover Range Rover Velar SVR,1929
-298,Porsche 911 GT2 RS Clubsport,1964
-299,Chevrolet Tahoe Activ,1984
-300,Acura NSX Type R,2020
-301,Lexus RC F Sport,1939
-302,Volkswagen ID. Buzz,1997
-303,Mazda CX-80,1944
-304,Dodge Viper ACR,1937
-305,Nissan 400Z,2010
-306,Mercedes-Benz AMG GT,2017
-307,Kia Seltos X-Line,1989
-308,Tesla Model S Plaid Plus,1974
-309,Audi RS Q8,2013
-310,Volvo V90 Recharge Polestar Engineered,2019
-311,Jaguar XKR-S,2008
-312,Infiniti QX90 Sport,1925
-313,Mitsubishi Montero Sport,2016
-314,Ford Maverick Hybrid,2022
-315,Hyundai Ioniq 5,1976
-316,Toyota Corolla Hatchback,1991
-317,Subaru WRX,1973
-318,Jeep Patriot EV,1971
-319,GMC Savana Cargo,2012
-320,Land Rover Range Rover Velar SV,1954
-321,Porsche 911 GT3 Cup,1936
-322,Chevrolet Express Cargo,1968
-323,Acura RLX Sport Hybrid SH-AWD,2011
-324,Lexus GX Sport SE,1965
-325,Volkswagen ID. Buzz Cargo,1963
-326,Mazda Tribute Hybrid,2011
-327,Dodge Charger SRT Hellcat Redeye,2017
-328,Nissan Juke Nismo RS,1963
-329,Mercedes-Benz EQC,2007
-330,Kia Seltos X-Line Turbo,1999
-331,Tesla Model S Plaid Pro,2000
-332,Audi RS Q8 Sportback,1971
-333,Volvo V90 Recharge Polestar Engineered Plus,1923
+275,Porsche 911 Targa,2009
+276,Chevrolet Trax Activ,2004
+277,Acura MDX Sport Hybrid,1935
+278,Lexus GS Sport,2013
+279,Volkswagen Taos,2004
+280,Mazda CX-70,2020
+281,Dodge Challenger SRT Demon,1982
+282,Nissan Titan XD,2005
+283,Mercedes-Benz GLS-Class,1960
+284,Kia Telluride Nightfall Edition,1934
+285,Tesla Model 2,1931
+286,Audi RS7,2019
+287,Volvo XC90 Recharge,2017
+288,Jaguar XKRS,1969
+289,Infiniti QX70,1932
+290,Mitsubishi Eclipse Cross PHEV,1986
+291,Ford Bronco Sport,1995
+292,Hyundai Kona N,1931
+293,Toyota Corolla Cross Hybrid,1955
+294,Subaru BRZ tS,1932
+295,Jeep Renegade PHEV,2012
+296,GMC Canyon Denali,1999
+297,Land Rover Range Rover Velar SVR,2000
+298,Porsche 911 GT2 RS Clubsport,2005
+299,Chevrolet Tahoe Activ,1941
+300,Acura NSX Type R,2000
+301,Lexus RC F Sport,2019
+302,Volkswagen ID. Buzz,1984
+303,Mazda CX-80,1932
+304,Dodge Viper ACR,1929
+305,Nissan 400Z,2016
+306,Mercedes-Benz AMG GT,1991
+307,Kia Seltos X-Line,2021
+308,Tesla Model S Plaid Plus,1942
+309,Audi RS Q8,1978
+310,Volvo V90 Recharge Polestar Engineered,1930
+311,Jaguar XKR-S,1976
+312,Infiniti QX90 Sport,2006
+313,Mitsubishi Montero Sport,1982
+314,Ford Maverick Hybrid,2002
+315,Hyundai Ioniq 5,1996
+316,Toyota Corolla Hatchback,1974
+317,Subaru WRX,1983
+318,Jeep Patriot EV,1959
+319,GMC Savana Cargo,1983
+320,Land Rover Range Rover Velar SV,1968
+321,Porsche 911 GT3 Cup,1953
+322,Chevrolet Express Cargo,1950
+323,Acura RLX Sport Hybrid SH-AWD,2022
+324,Lexus GX Sport SE,1947
+325,Volkswagen ID. Buzz Cargo,2021
+326,Mazda Tribute Hybrid,1942
+327,Dodge Charger SRT Hellcat Redeye,2021
+328,Nissan Juke Nismo RS,1995
+329,Mercedes-Benz EQC,1958
+330,Kia Seltos X-Line Turbo,1983
+331,Tesla Model S Plaid Pro,1932
+332,Audi RS Q8 Sportback,1959
+333,Volvo V90 Recharge Polestar Engineered Plus,1947
 334,Jaguar XKR-S GT,1983
-335,Infiniti QX100,1938
-336,Mitsubishi Outlander Sport PHEV,1923
-337,Ford Maverick Electric,1962
-338,Hyundai Ioniq 5 N,2011
-339,Toyota Corolla Hatchback Hybrid,1992
-340,Subaru WRX STI,1997
-341,Jeep Patriot PHEV,1982
-342,GMC Savana Passenger,2021
-343,Land Rover Range Rover Velar SV Autobiography,1935
-344,Porsche 911 GT3 R,1933
-345,Chevrolet Express Passenger,1935
-346,Acura RLX Sport Hybrid SH-AWD Advance,1968
-347,Lexus GX Sport SE Off-Road,1999
-348,Volkswagen ID. Buzz Cargo Plus,1979
-349,Mazda Tribute Hybrid Sport,1992
-350,Dodge Charger SRT Hellcat Redeye Widebody,2012
-351,Nissan Juke Nismo RS AWD,1998
-352,Mercedes-Benz EQC AMG,1988
-353,Kia Seltos X-Line Turbo AWD,2017
-354,Tesla Model S Plaid Pro Plus,1994
-355,Audi RS Q8 Sportback Plus,1936
+335,Infiniti QX100,1996
+336,Mitsubishi Outlander Sport PHEV,2006
+337,Ford Maverick Electric,2011
+338,Hyundai Ioniq 5 N,1938
+339,Toyota Corolla Hatchback Hybrid,1976
+340,Subaru WRX STI,2007
+341,Jeep Patriot PHEV,1944
+342,GMC Savana Passenger,2015
+343,Land Rover Range Rover Velar SV Autobiography,2008
+344,Porsche 911 GT3 R,1934
+345,Chevrolet Express Passenger,1967
+346,Acura RLX Sport Hybrid SH-AWD Advance,1987
+347,Lexus GX Sport SE Off-Road,1946
+348,Volkswagen ID. Buzz Cargo Plus,1927
+349,Mazda Tribute Hybrid Sport,1988
+350,Dodge Charger SRT Hellcat Redeye Widebody,1931
+351,Nissan Juke Nismo RS AWD,2001
+352,Mercedes-Benz EQC AMG,1944
+353,Kia Seltos X-Line Turbo AWD,1969
+354,Tesla Model S Plaid Pro Plus,1984
+355,Audi RS Q8 Sportback Plus,1957
 356,Volvo V90 Recharge Polestar Engineered Plus Plus,1979
-357,Jaguar XKR-S GT Plus,1950
-358,Infiniti QX100 Plus,1968
-359,Mitsubishi Outlander Sport PHEV Plus,1969
-360,Ford Maverick Electric Plus,1968
-361,Hyundai Ioniq 5 N Plus,2007
-362,Toyota Corolla Hatchback Hybrid Plus,1957
-363,Subaru WRX STI Plus,1972
-364,Jeep Patriot PHEV Plus,2019
-365,GMC Savana Passenger Plus,1977
-366,Land Rover Range Rover Velar SV Autobiography Plus,1959
-367,Porsche 911 GT3 R Plus,1999
-368,Chevrolet Express Passenger Plus,1962
-369,Acura RLX Sport Hybrid SH-AWD Advance Plus,1934
-370,Lexus GX Sport SE Off-Road Plus,1946
-371,Volkswagen ID. Buzz Cargo Plus Plus,1923
-372,Mazda Tribute Hybrid Sport Plus,1944
-373,Dodge Charger SRT Hellcat Redeye Widebody Plus,1933
-374,Nissan Juke Nismo RS AWD Plus,1956
-375,Mercedes-Benz EQC AMG Plus,1952
-376,Kia Seltos X-Line Turbo AWD Plus,1980
-377,Tesla Model S Plaid Pro Plus Plus,2020
+357,Jaguar XKR-S GT Plus,1971
+358,Infiniti QX100 Plus,1992
+359,Mitsubishi Outlander Sport PHEV Plus,1928
+360,Ford Maverick Electric Plus,2018
+361,Hyundai Ioniq 5 N Plus,1987
+362,Toyota Corolla Hatchback Hybrid Plus,1928
+363,Subaru WRX STI Plus,1974
+364,Jeep Patriot PHEV Plus,1964
+365,GMC Savana Passenger Plus,1966
+366,Land Rover Range Rover Velar SV Autobiography Plus,2006
+367,Porsche 911 GT3 R Plus,1985
+368,Chevrolet Express Passenger Plus,1929
+369,Acura RLX Sport Hybrid SH-AWD Advance Plus,1989
+370,Lexus GX Sport SE Off-Road Plus,1987
+371,Volkswagen ID. Buzz Cargo Plus Plus,1950
+372,Mazda Tribute Hybrid Sport Plus,2000
+373,Dodge Charger SRT Hellcat Redeye Widebody Plus,1946
+374,Nissan Juke Nismo RS AWD Plus,1954
+375,Mercedes-Benz EQC AMG Plus,2022
+376,Kia Seltos X-Line Turbo AWD Plus,1992
+377,Tesla Model S Plaid Pro Plus Plus,1965

@@ -4,7 +4,7 @@ public class Neo4JConnector implements IDatabaseConnector {
     //Connection string
     private static final String neo4jConnectionString = "jdbc:neo4j:bolt://localhost:7687";
     private static final String user = "neo4j";
-    private static final String password = "passwort";
+    private static final String password = "passwort123";
     private Connection con;
     public boolean connect(){
         try {
@@ -52,19 +52,17 @@ public class Neo4JConnector implements IDatabaseConnector {
         String[] queries = new String[11]; // Für 10 Customer-CSVs und 1 Car-CSV
 
         // READ CUSTOMER.CSV
-        String customerQuery = "LOAD CSV WITH HEADERS FROM 'file:///Customer/Customer0.csv' AS line\n" +
+        for (int i = 1; i <= 10; i++) {
+            String customerQuery = "LOAD CSV WITH HEADERS FROM 'file:///Customer/Customer" + i + ".csv' AS line\n" +
                     "CREATE (:Customer {customerId: toInteger(line.Id), name: line.Name, street: line.Street, city: line.City});";
-        var answer = send(customerQuery);
-        if(!answer){
-            return false;
+            queries[i - 1] = customerQuery;
         }
         // READ Cars
         String carQuery = "LOAD CSV WITH HEADERS FROM 'file:///Cars/Cars0.csv' AS line\n" +
                 "CREATE (:Car {carId: toInteger(line.Id), name: line.Name, baujahr: toInteger(line.Baujahr)});";
-
-        answer = send(carQuery);
-        if(!answer){
-            return false;
+        queries[10] = carQuery;
+        for (String query : queries) {
+            send(query);
         }
         return true;
     }

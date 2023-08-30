@@ -22,7 +22,7 @@ public class Neo4JCreateTest {
         try{
             neo4jConnector = new Neo4JConnector();
             neo4jConnector.connect();
-            neo4jConnector.initializeDatabase();
+            //neo4jConnector.initializeDatabase();
 
             for (int i = 1; i <= 10; i++) {
                 List<String[]> data = read("C:\\Users\\mijnders\\RiderProjects\\DbBenchmark\\CSV\\Owners\\Owners" + i + ".csv");
@@ -46,7 +46,7 @@ public class Neo4JCreateTest {
     @AfterAll
     public static void EmptyDatabase(){
         /*try{
-            neo4jConnector.send("MATCH (n) DETACH DELETE n;");
+            neo4jConnector.send("MATCH (n) CALL { WITH n DETACH DELETE n} IN TRANSACTIONS");
         }
         catch (Exception e){
             System.out.println(e.getMessage());
@@ -84,7 +84,7 @@ public class Neo4JCreateTest {
         }
 
         if(result.get()){
-            String fileName = "createOne.txt";
+            String fileName = "createOne.csv";
             writeExecutionTimesToFile(fileName, executionTimes, timestamp);
         }
     }
@@ -93,7 +93,7 @@ public class Neo4JCreateTest {
         List<String> cypherQueries = new ArrayList<>();
         List<Long> executionTimes = new ArrayList<>();
 
-        for (int i = 1; i < 100; i++) {
+        for (int i = 1; i <= 100; i++) {
             String[] oneData = allData.get(i);
             String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
                     oneData[0] + " AND b.carId = " + oneData[1] +
@@ -110,16 +110,16 @@ public class Neo4JCreateTest {
             assertTrue(result.get());
         }
         if(result.get()){
-        String fileName = "createOneHundred.txt";
+        String fileName = "createOneHundred.csv";
         writeExecutionTimesToFile(fileName, executionTimes, timestamp);
-            }
+        }
     }
     @Test
     public void createTenThousand(){
         List<String> cypherQueries = new ArrayList<>();
         List<Long> executionTimes = new ArrayList<>();
 
-        for (int i = 1; i < 10000; i++) {
+        for (int i = 1; i <= 10000; i++) {
             String[] oneData = allData.get(i);
             String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
                     oneData[0] + " AND b.carId = " + oneData[1] +
@@ -137,7 +137,7 @@ public class Neo4JCreateTest {
         }
 
         if(result.get()){
-        String fileName = "createTenThousand.txt";
+        String fileName = "createTenThousand.csv";
         writeExecutionTimesToFile(fileName, executionTimes, timestamp);
             }
     }
@@ -146,7 +146,7 @@ public class Neo4JCreateTest {
         List<String> cypherQueries = new ArrayList<>();
         List<Long> executionTimes = new ArrayList<>();
 
-        for (int i = 1; i < 100000; i++) {
+        for (int i = 1; i <= 100000; i++) {
             String[] oneData = allData.get(i);
             String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
                     oneData[0] + " AND b.carId = " + oneData[1] +
@@ -163,7 +163,7 @@ public class Neo4JCreateTest {
             assertTrue(result.get());
         }
         if(result.get()){
-        String fileName = "createHundredThousand.txt";
+        String fileName = "createHundredThousand.csv";
         writeExecutionTimesToFile(fileName, executionTimes, timestamp);
             }
     }
@@ -173,7 +173,7 @@ public class Neo4JCreateTest {
         List<String> cypherQueries = new ArrayList<>();
         List<Long> executionTimes = new ArrayList<>();
 
-        for (int i = 1; i < 1000000; i++) {
+        for (int i = 1; i <= 1000000; i++) {
             String[] oneData = allData.get(i);
             String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
                     oneData[0] + " AND b.carId = " + oneData[1] +
@@ -191,7 +191,7 @@ public class Neo4JCreateTest {
         }
 
         if(result.get()){
-        String fileName = "createOneMillion.txt";
+        String fileName = "createOneMillion.csv";
         writeExecutionTimesToFile(fileName, executionTimes, timestamp);
         }
     }
@@ -200,17 +200,11 @@ public class Neo4JCreateTest {
         try (FileWriter writer = new FileWriter("testLogs/Neo4J/" + fileName, true)) { // 'true' bedeutet anhängen
             long summe = 0;
             for (Long time : executionTimes) {
-                writer.write(timestamp + " " + time + " ns\n");
                 summe += time;
             }
-            // Berechnen und hinzufügen des Durchschnitts
-            long sum = 0;
-            for (Long time : executionTimes) {
-                sum += time;
-            }
-            long average = executionTimes.isEmpty() ? 0 : sum / executionTimes.size();
-            writer.write("Durchschnitt: " + average + " ns\n");
-            writer.write("Summe: " + summe + "ns - " + TimeUnit.NANOSECONDS.toMillis(summe) + "ms - " + TimeUnit.NANOSECONDS.toSeconds(summe) + "s - " + TimeUnit.NANOSECONDS.toMinutes(summe) + "m");
+            long average = executionTimes.isEmpty() ? 0 : summe / executionTimes.size();
+            writer.write( "Durchschnitt: " + average + " ns\n");
+            writer.write("Summe: " + summe + "ns - " + TimeUnit.NANOSECONDS.toMillis(summe) + "ms - " + TimeUnit.NANOSECONDS.toSeconds(summe) + "s - " + TimeUnit.NANOSECONDS.toMinutes(summe) + "m\n\n");
         } catch (IOException e) {
             e.printStackTrace();
         }

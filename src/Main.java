@@ -10,6 +10,15 @@ public class Main {
 
     public static void main(String[] args) {
         var neo4jConnector = new Neo4JConnector();
+        neo4jConnector.connect();
+        neo4jConnector.initializeDatabase();
+        try (ResultSet rs = neo4jConnector.ask("MATCH (n:Customer) RETURN n.customerId, n.name LIMIT 1000000")){
+            while (rs.next()) {
+                System.out.println(rs.getInt("n.customerId") + rs.getString("n.name"));
+            }
+        }
+        catch(Exception e){
 
+        }
     }
 }
