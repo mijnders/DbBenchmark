@@ -21,7 +21,7 @@ public class PostgresConnector implements IDatabaseConnector{
         }
         catch (Exception e) {
             System.err.println("Connection failed!");
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
         return true;
@@ -59,33 +59,32 @@ public class PostgresConnector implements IDatabaseConnector{
         String createTables =
                 "create table Cars (id INT PRIMARY KEY, Name TEXT, Baujahr INT);" +
                 "create table Customers (id INT PRIMARY KEY, Name TEXT, Street TEXT, City TEXT);" +
-                "create table Owners (CustomerID INT, CarID INT, CarColor TEXT, Date TEXT" + ");";
-                //", CONSTRAINT customer_fk FOREIGN KEY(CustomerID) REFERENCES Customers(id), CONSTRAINT car_fk FOREIGN KEY(CarID) REFERENCES Cars(id));";
+                "create table Owners (CustomerID INT, CarID INT, CarColor TEXT, Date TEXT" +
+                ", CONSTRAINT customer_fk FOREIGN KEY(CustomerID) REFERENCES Customers(id), CONSTRAINT car_fk FOREIGN KEY(CarID) REFERENCES Cars(id));";
 
 
         return send(createTables);
     }
 
-    public boolean ImportData(String... params) {
-        String importQuery =
-                "COPY Customers(id, Name, Street, City) FROM '" + testFiles + "Customer\\Customer1.csv" + "' DELIMITER ',' CSV HEADER;" +
-                "COPY Cars(id, Name, Baujahr) FROM '" + testFiles + "Cars\\Cars0.csv" + "' DELIMITER ',' CSV HEADER;" +
-                "COPY Owners(CustomerID, CarID, CarColor, Date) FROM '" + testFiles + "Owners\\Owners1.csv" + "' DELIMITER ',' CSV HEADER;";
-
-        return send(importQuery);
-    }
-
-    public boolean CreateEntrys(int amount){
-        StringBuilder entrys = new StringBuilder();
-        for(int i = 0; i < -1; i++){
-            entrys.append("INSERT INTO table_name(id, testColumn)" +
-                    "VALUES (" + i + ", testValue);");
+    public boolean importData(String... params) {
+        StringBuilder importQuery = new StringBuilder("COPY Cars(id, Name, Baujahr) FROM '" + testFiles + "Cars\\Cars0.csv" + "' DELIMITER ',' CSV HEADER;");
+        for (int i = 1; i <= 10; i++){
+            importQuery.append("COPY Customers(id, Name, Street, City) FROM '" + testFiles + "Customer\\Customer" + i + ".csv" + "' DELIMITER ',' CSV HEADER;");
         }
-        return send(entrys.toString());
+
+        return send(importQuery.toString());
     }
 
-    public boolean DeleteAllEntries(String tableName){
-        String deleteQuery = "DELETE FROM table";
+    public boolean dropTables(){
+        String dropQuery = "drop table owners; " +
+                "drop table cars; " +
+                "drop table customers;";
+
+        return send(dropQuery);
+    }
+
+    public boolean deleteData(){
+        String deleteQuery = "truncate owners;";
 
         return send(deleteQuery);
     }
