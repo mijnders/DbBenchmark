@@ -1,14 +1,13 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-class Neo4JCreateTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Neo4JCreateTest {
 
     interface Measurable {
         void TestMethod();
@@ -20,24 +19,38 @@ class Neo4JCreateTest {
 
     @BeforeAll
     public static void Ini(){
-        neo4jConnector = new Neo4JConnector();
-        neo4jConnector.connect();
-        neo4jConnector.initializeDatabase();
+        try{
+            neo4jConnector = new Neo4JConnector();
+            neo4jConnector.connect();
+            //neo4jConnector.initializeDatabase();
 
-        for (int i = 1; i <= 10; i++) {
-            List<String[]> data = read("C:\\Users\\mijnders\\RiderProjects\\DbBenchmark\\CSV\\Owners\\Owners" + i + ".csv");
-            allData.addAll(data);
+            for (int i = 1; i <= 10; i++) {
+                List<String[]> data = read("C:\\Users\\mijnders\\RiderProjects\\DbBenchmark\\CSV\\Owners\\Owners" + i + ".csv");
+                allData.addAll(data);
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
         }
     }
 
     @AfterEach
-    public void TearDownNeo4JDatabase(){
-        neo4jConnector.send(":auto MATCH (n:Owners) CALL {WITH n DETACH DELETE n} IN TRANSACTIONS");
+    public void EmptyRelations(){
+        /*try{
+            neo4jConnector.send("MATCH (n:Customer)-[r:IS_OWNER_OF]->() DETACH DELETE r;");
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }*/
     }
 
     @AfterAll
-    public static void EmptyNeo4JDatabase(){
-        neo4jConnector.send(":auto MATCH (n) CALL {WITH n DETACH DELETE n} IN TRANSACTIONS");
+    public static void EmptyDatabase(){
+        /*try{
+            neo4jConnector.send("MATCH (n) CALL { WITH n DETACH DELETE n} IN TRANSACTIONS");
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }*/
     }
 
     public long Measure(Measurable measurable){
@@ -50,62 +63,151 @@ class Neo4JCreateTest {
 
     @Test
     public void createOne(){
-        String[] oneData = allData.get(0);
-        String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " + oneData[0] +
-                " AND b.carId = " + oneData[1] +
-                " CREATE (a)-[r:Owners{Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b) RETURN type(r);";
+        List<String> cypherQueries = new ArrayList<>();
+        List<Long> executionTimes = new ArrayList<>();
+
+        for (int i = 1; i < 2; i++) {
+            String[] oneData = allData.get(i);
+            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
+                    oneData[0] + " AND b.carId = " + oneData[1] +
+                    " CREATE (a)-[r:IS_OWNER_OF {Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b)";
+            cypherQueries.add(cypherQuery);
+        }
+
         AtomicBoolean result = new AtomicBoolean(false);
-        long l = Measure(() -> result.set(neo4jConnector.send(cypherQuery)));
-        if(result.get()) System.out.println(l);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        String timestamp = "[" + dateFormat.format(new Date()) + "]";
+
+        for (String cypherQuery : cypherQueries) {
+            executionTimes.add(Measure(() -> result.set(neo4jConnector.send(cypherQuery))));
+            assertTrue(result.get());
+        }
+
+        if(result.get()){
+            String fileName = "createOne.csv";
+            writeExecutionTimesToFile(fileName, executionTimes, timestamp);
+        }
     }
     @Test
     public void createOneHundred(){
-        StringBuilder cypherQuery = new StringBuilder();
-        for (int i = 0; i < 100; i++){
+        List<String> cypherQueries = new ArrayList<>();
+        List<Long> executionTimes = new ArrayList<>();
+
+        for (int i = 1; i <= 100; i++) {
             String[] oneData = allData.get(i);
-            cypherQuery.append("MATCH (a:Customer), (b:Car) WHERE a.customerId = ").append(oneData[0]).append(" AND b.carId = ").append(oneData[1]).append(" CREATE (a)-[r:Owners{Color: '").append(oneData[2]).append("', date: '").append(oneData[3]).append("'}]->(b) RETURN type(r);\n");
+            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
+                    oneData[0] + " AND b.carId = " + oneData[1] +
+                    " CREATE (a)-[r:IS_OWNER_OF {Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b) RETURN type(r);\n";
+            cypherQueries.add(cypherQuery);
         }
+
         AtomicBoolean result = new AtomicBoolean(false);
-        String finalCypherQuery = cypherQuery.toString();
-        long l = Measure(() -> result.set(neo4jConnector.send(finalCypherQuery)));
-        if(result.get()) System.out.println(l);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        String timestamp = "[" + dateFormat.format(new Date()) + "]";
+
+        for (String cypherQuery : cypherQueries) {
+            executionTimes.add(Measure(() -> result.set(neo4jConnector.send(cypherQuery))));
+            assertTrue(result.get());
+        }
+        if(result.get()){
+        String fileName = "createOneHundred.csv";
+        writeExecutionTimesToFile(fileName, executionTimes, timestamp);
+        }
     }
     @Test
     public void createTenThousand(){
-        StringBuilder cypherQuery = new StringBuilder();
-        for (int i = 0; i < 10000; i++){
+        List<String> cypherQueries = new ArrayList<>();
+        List<Long> executionTimes = new ArrayList<>();
+
+        for (int i = 1; i <= 10000; i++) {
             String[] oneData = allData.get(i);
-            cypherQuery.append("MATCH (a:Customer), (b:Car) WHERE a.customerId = ").append(oneData[0]).append(" AND b.carId = ").append(oneData[1]).append(" CREATE (a)-[r:Owners{Color: '").append(oneData[2]).append("', date: '").append(oneData[3]).append("'}]->(b) RETURN type(r);\n");
+            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
+                    oneData[0] + " AND b.carId = " + oneData[1] +
+                    " CREATE (a)-[r:IS_OWNER_OF {Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b) RETURN type(r);\n";
+            cypherQueries.add(cypherQuery);
         }
+
         AtomicBoolean result = new AtomicBoolean(false);
-        String finalCypherQuery = cypherQuery.toString();
-        long l = Measure(() -> result.set(neo4jConnector.send(finalCypherQuery)));
-        if(result.get()) System.out.println(l);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        String timestamp = "[" + dateFormat.format(new Date()) + "]";
+
+        for (String cypherQuery : cypherQueries) {
+            executionTimes.add(Measure(() -> result.set(neo4jConnector.send(cypherQuery))));
+            assertTrue(result.get());
+        }
+
+        if(result.get()){
+        String fileName = "createTenThousand.csv";
+        writeExecutionTimesToFile(fileName, executionTimes, timestamp);
+            }
     }
     @Test
     public void createHundredThousand(){
-        StringBuilder cypherQuery = new StringBuilder();
-        for (int i = 0; i < 100000; i++){
+        List<String> cypherQueries = new ArrayList<>();
+        List<Long> executionTimes = new ArrayList<>();
+
+        for (int i = 1; i <= 100000; i++) {
             String[] oneData = allData.get(i);
-            cypherQuery.append("MATCH (a:Customer), (b:Car) WHERE a.customerId = ").append(oneData[0]).append(" AND b.carId = ").append(oneData[1]).append(" CREATE (a)-[r:Owners{Color: '").append(oneData[2]).append("', date: '").append(oneData[3]).append("'}]->(b) RETURN type(r);\n");
+            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
+                    oneData[0] + " AND b.carId = " + oneData[1] +
+                    " CREATE (a)-[r:IS_OWNER_OF {Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b) RETURN type(r);\n";
+            cypherQueries.add(cypherQuery);
         }
+
         AtomicBoolean result = new AtomicBoolean(false);
-        String finalCypherQuery = cypherQuery.toString();
-        long l = Measure(() -> result.set(neo4jConnector.send(finalCypherQuery)));
-        if(result.get()) System.out.println(l);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        String timestamp = "[" + dateFormat.format(new Date()) + "]";
+
+        for (String cypherQuery : cypherQueries) {
+            executionTimes.add(Measure(() -> result.set(neo4jConnector.send(cypherQuery))));
+            assertTrue(result.get());
+        }
+        if(result.get()){
+        String fileName = "createHundredThousand.csv";
+        writeExecutionTimesToFile(fileName, executionTimes, timestamp);
+            }
     }
 
     @Test
     public void createOneMillion(){
-        StringBuilder cypherQuery = new StringBuilder();
-        for (int i = 0; i < 1000000; i++){
+        List<String> cypherQueries = new ArrayList<>();
+        List<Long> executionTimes = new ArrayList<>();
+
+        for (int i = 1; i <= 1000000; i++) {
             String[] oneData = allData.get(i);
-            cypherQuery.append("MATCH (a:Customer), (b:Car) WHERE a.customerId = ").append(oneData[0]).append(" AND b.carId = ").append(oneData[1]).append(" CREATE (a)-[r:Owners{Color: '").append(oneData[2]).append("', date: '").append(oneData[3]).append("'}]->(b) RETURN type(r);\n");
+            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
+                    oneData[0] + " AND b.carId = " + oneData[1] +
+                    " CREATE (a)-[r:IS_OWNER_OF {Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b) RETURN type(r);\n";
+            cypherQueries.add(cypherQuery);
         }
+
         AtomicBoolean result = new AtomicBoolean(false);
-        String finalCypherQuery = cypherQuery.toString();
-        long l = Measure(() -> result.set(neo4jConnector.send(finalCypherQuery)));
-        if(result.get()) System.out.println(l);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        String timestamp = "[" + dateFormat.format(new Date()) + "]";
+
+        for (String cypherQuery : cypherQueries) {
+            executionTimes.add(Measure(() -> result.set(neo4jConnector.send(cypherQuery))));
+            assertTrue(result.get());
+        }
+
+        if(result.get()){
+        String fileName = "createOneMillion.csv";
+        writeExecutionTimesToFile(fileName, executionTimes, timestamp);
+        }
+    }
+
+    private void writeExecutionTimesToFile(String fileName, List<Long> executionTimes, String timestamp) {
+        try (FileWriter writer = new FileWriter("testLogs/Neo4J/" + fileName, true)) { // 'true' bedeutet anhängen
+            long summe = 0;
+            for (Long time : executionTimes) {
+                summe += time;
+            }
+            long average = executionTimes.isEmpty() ? 0 : summe / executionTimes.size();
+            writer.write( "Durchschnitt: " + average + " ns\n");
+            writer.write("Summe: " + summe + "ns - " + TimeUnit.NANOSECONDS.toMillis(summe) + "ms - " + TimeUnit.NANOSECONDS.toSeconds(summe) + "s - " + TimeUnit.NANOSECONDS.toMinutes(summe) + "m\n\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static List<String[]> read(String csvFile) {
