@@ -6,6 +6,7 @@ public class PostgresConnector implements IDatabaseConnector{
     private static final String postgresURL = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=geheim";
     private static final String user = "postgres";
     private static final String password = "geheim";
+    private static final String testFiles = System.getProperty("user.dir") + "\\CSV\\";
 
     private Connection connection;
 
@@ -56,21 +57,20 @@ public class PostgresConnector implements IDatabaseConnector{
     @Override
     public boolean initializeDatabase(String... params) {
         String createTables =
-                "create table Product (id INT PRIMARY KEY, Name TEXT, Price FLOAT);" +
-                        "create table Customer (id INT PRIMARY KEY, Firstname TEXT, Lastname TEXT, Street TEXT, City TEXT);" +
-                        "create table Invoice (id INT PRIMARY KEY, CustomerID INT, Total FLOAT, CONSTRAINT customer_fk FOREIGN KEY(CustomerID) REFERENCES Customer(id));"+
-                        "create table Item (InvoiceID INT, Item INT, ProductID INT, Quantity INT, Cost FLOAT, PRIMARY KEY(InvoiceID, Item), " +
-                        "CONSTRAINT invoice_fk FOREIGN KEY(InvoiceID) REFERENCES Invoice(id), CONSTRAINT product_fk FOREIGN KEY(ProductID) REFERENCES Product(id));";
+                "create table Cars (id INT PRIMARY KEY, Name TEXT, Baujahr INT);" +
+                "create table Customers (id INT PRIMARY KEY, Name TEXT, Street TEXT, City TEXT);" +
+                "create table Owners (CustomerID INT, CarID INT, CarColor TEXT, Date TEXT" + ");";
+                //", CONSTRAINT customer_fk FOREIGN KEY(CustomerID) REFERENCES Customers(id), CONSTRAINT car_fk FOREIGN KEY(CarID) REFERENCES Cars(id));";
+
 
         return send(createTables);
     }
 
     public boolean ImportData(String... params) {
         String importQuery =
-                "COPY Customer(id, Firstname, Lastname, Street, City) FROM '" + "Customer.csv" + "'DELIMITER ',' CSV HEADER;" +
-                        "COPY Product(id, Name, Price) FROM '" + "Product.csv" + "' DELIMITER ',' CSV HEADER;" +
-                        "COPY Invoice(id, CustomerID, Total) '" + "Invoice.csv" + "' DELIMITER ',' CSV HEADER;" +
-                        "COPY Item(InvoiceID, Item, ProductID, Quantity, Cost) '" + "Item.csv" + "' DELIMITER ',' CSV HEADER;";
+                "COPY Customers(id, Name, Street, City) FROM '" + testFiles + "Customer\\Customer1.csv" + "' DELIMITER ',' CSV HEADER;" +
+                "COPY Cars(id, Name, Baujahr) FROM '" + testFiles + "Cars\\Cars0.csv" + "' DELIMITER ',' CSV HEADER;" +
+                "COPY Owners(CustomerID, CarID, CarColor, Date) FROM '" + testFiles + "Owners\\Owners1.csv" + "' DELIMITER ',' CSV HEADER;";
 
         return send(importQuery);
     }
