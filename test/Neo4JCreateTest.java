@@ -35,7 +35,7 @@ public class Neo4JCreateTest {
 
     @AfterEach
     public void EmptyRelations(){
-        /*try{
+       /* try{
             neo4jConnector.send("MATCH (n:Customer)-[r:IS_OWNER_OF]->() DETACH DELETE r;");
         }
         catch (Exception e){
@@ -46,7 +46,9 @@ public class Neo4JCreateTest {
     @AfterAll
     public static void EmptyDatabase(){
         /*try{
-            neo4jConnector.send("MATCH (n) CALL { WITH n DETACH DELETE n} IN TRANSACTIONS");
+            neo4jConnector.send("MATCH (n) DETACH DELETE n");
+            neo4jConnector.send("DROP CONSTRAINT ON (car:Car) ASSERT car.id IS UNIQUE");
+            neo4jConnector.send("DROP CONSTRAINT ON (customer:Customer) ASSERT customer.id IS UNIQUE");
         }
         catch (Exception e){
             System.out.println(e.getMessage());
@@ -66,10 +68,10 @@ public class Neo4JCreateTest {
         List<String> cypherQueries = new ArrayList<>();
         List<Long> executionTimes = new ArrayList<>();
 
-        for (int i = 1; i < 2; i++) {
+        for (int i = 0; i < 1; i++) {
             String[] oneData = allData.get(i);
-            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
-                    oneData[0] + " AND b.carId = " + oneData[1] +
+            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.id = " +
+                    oneData[0] + " AND b.id = " + oneData[1] +
                     " CREATE (a)-[r:IS_OWNER_OF {Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b)";
             cypherQueries.add(cypherQuery);
         }
@@ -93,10 +95,10 @@ public class Neo4JCreateTest {
         List<String> cypherQueries = new ArrayList<>();
         List<Long> executionTimes = new ArrayList<>();
 
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 0; i < 100; i++) {
             String[] oneData = allData.get(i);
-            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
-                    oneData[0] + " AND b.carId = " + oneData[1] +
+            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.id = " +
+                    oneData[0] + " AND b.id = " + oneData[1] +
                     " CREATE (a)-[r:IS_OWNER_OF {Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b) RETURN type(r);\n";
             cypherQueries.add(cypherQuery);
         }
@@ -119,10 +121,10 @@ public class Neo4JCreateTest {
         List<String> cypherQueries = new ArrayList<>();
         List<Long> executionTimes = new ArrayList<>();
 
-        for (int i = 1; i <= 10000; i++) {
+        for (int i = 0; i < 10000; i++) {
             String[] oneData = allData.get(i);
-            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
-                    oneData[0] + " AND b.carId = " + oneData[1] +
+            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.id = " +
+                    oneData[0] + " AND b.id = " + oneData[1] +
                     " CREATE (a)-[r:IS_OWNER_OF {Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b) RETURN type(r);\n";
             cypherQueries.add(cypherQuery);
         }
@@ -146,10 +148,10 @@ public class Neo4JCreateTest {
         List<String> cypherQueries = new ArrayList<>();
         List<Long> executionTimes = new ArrayList<>();
 
-        for (int i = 1; i <= 100000; i++) {
+        for (int i = 0; i < 100000; i++) {
             String[] oneData = allData.get(i);
-            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
-                    oneData[0] + " AND b.carId = " + oneData[1] +
+            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.id = " +
+                    oneData[0] + " AND b.id = " + oneData[1] +
                     " CREATE (a)-[r:IS_OWNER_OF {Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b) RETURN type(r);\n";
             cypherQueries.add(cypherQuery);
         }
@@ -173,10 +175,10 @@ public class Neo4JCreateTest {
         List<String> cypherQueries = new ArrayList<>();
         List<Long> executionTimes = new ArrayList<>();
 
-        for (int i = 1; i <= 1000000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             String[] oneData = allData.get(i);
-            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.customerId = " +
-                    oneData[0] + " AND b.carId = " + oneData[1] +
+            String cypherQuery = "MATCH (a:Customer), (b:Car) WHERE a.id = " +
+                    oneData[0] + " AND b.id = " + oneData[1] +
                     " CREATE (a)-[r:IS_OWNER_OF {Color: '" + oneData[2] + "', date: '" + oneData[3] + "'}]->(b) RETURN type(r);\n";
             cypherQueries.add(cypherQuery);
         }
@@ -220,8 +222,10 @@ public class Neo4JCreateTest {
             String line;
 
             while ((line = br.readLine()) != null) {
-                String[] tempArr = line.split(delimiter);
-                rows.add(tempArr);
+                if(!line.startsWith("CustomerID")){
+                    String[] tempArr = line.split(delimiter);
+                    rows.add(tempArr);
+                }
             }
 
             br.close();
